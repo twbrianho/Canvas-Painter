@@ -1,0 +1,349 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-image: url(assets/wood.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hint-bar {
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: #3E2512;
+    /*text-shadow: 2px 2px 2px #3E2512;*/
+    padding: 5px 15px;
+    background-color: rgba(249, 216, 188, 0.6);
+}
+
+#top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.7);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(-30px);
+}
+
+#drawing-canvas {
+    background-color: white;
+    margin: 0;
+    cursor: url(assets/default_cursor.png), auto;
+}
+
+#settings-bar {
+    height: 400px;
+    width: 250px;
+    display: inline-block;
+    background-color: rgba(28, 14, 8, 0.7);
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+label {
+    font-family: 'Muli', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: white;
+    opacity: 0.9;
+}
+
+.color-picker {
+    margin: 7px;
+    -webkit-appearance: none;
+    padding: 0;
+    border: solid 6px white;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+}
+
+.color-picker-label {
+    position: relative;
+    bottom: 26px;
+}
+
+#text-input {
+    height: 16px;
+    width: 190px;
+    font-size: 14px;
+    color: black;
+    font-family: 'Merriweather', serif;
+    padding: 3px 5px;
+}
+
+#font-selector {
+    font-size: 14px;
+    color: #3E2512;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-family: 'Muli', sans-serif;
+    margin-left: 10px;
+}
+
+#thickness-range {
+    margin: 10px;
+}
+
+#thickness-label {
+    position: relative;
+    bottom: 3px;
+}
+
+.settings-block {
+    margin: 10px;
+}
+
+.texture-icon {
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+    border: solid 5px black;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.texture-icon:hover {
+    border: solid 5px grey;
+}
+
+#texture1 {
+    background-color: #3E2512;
+}
+
+#texture2 {
+    background: linear-gradient(#907A69, #1F1B17);
+}
+
+#texture3 {
+    background: url("assets/texture_small.png");
+}
+
+#texture-img {
+    display: none;
+}
+
+.settings-icon {
+    width: 25px;
+    height: 25px;
+    margin: 10px 5px;
+    transition: 0.1s;
+    background: transparent;
+    border: none;
+}
+.settings-icon:hover {
+    opacity: 0.3;
+    transform: scale(1.2);
+}
+
+.settings-label {
+    position: relative;
+    bottom: 6px;
+}
+
+#upload {
+    background-image: url(assets/upload.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+#upload:hover {
+    transform: scale(1);
+}
+#upload:active {
+    transform: scale(1.2);
+}
+
+#upload-input {
+    display: none;
+}
+
+#download {
+    background-image: url(assets/download.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+#download:hover {
+    transform: scale(1);
+}
+#download:active {
+    transform: scale(1.2);
+}
+
+#undo-redo-reset {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 15px;
+}
+
+#undo, #redo, #reset {
+    width: 30px;
+    height: 30px;
+}
+
+#undo {
+    background-image: url(assets/undo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+#undo:hover {
+    transform: rotate(-30deg);
+}
+#undo:active {
+    transform: rotate(-45deg);
+}
+
+#redo {
+    background-image: url(assets/redo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+#redo:hover {
+    transform: rotate(30deg);
+}
+#redo:active {
+    transform: rotate(45deg);
+}
+
+#reset {
+    background-image: url(assets/trash_closed.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+#reset:hover {
+    background-image: url(assets/trash_open.png);
+}
+#reset:active {
+    transform: scale(1.3);
+}
+
+#lower-section {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tools-bar {
+    position: relative;
+    bottom: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shelf {
+    position: relative;
+    bottom: -40px;
+}
+
+.tool-icon {
+    background-color: transparent;
+    border: none;
+    width: 55px;
+    height: 55px;
+    margin: 10px;
+    z-index: 10;
+    transition: 0.2s;
+}
+
+.tool-icon:hover {
+    transform: scale(1.5);
+}
+
+#pencil {
+    background-image: url(assets/pencil_brown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px;
+}
+#pencil:hover {
+    background-image: url(assets/pencil.png);
+}
+
+#eraser {
+    background-image: url(assets/eraser_brown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px;
+}
+#eraser:hover {
+    background-image: url(assets/eraser.png);
+}
+
+#text {
+    background-image: url(assets/text_brown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px;
+}
+#text:hover {
+    background-image: url(assets/text.png);
+}
+
+#rectangle {
+    background-image: url(assets/rectangle_brown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px;
+}
+#rectangle:hover {
+    background-image: url(assets/rectangle.png);
+}
+
+#circle {
+    background-image: url(assets/circle_brown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px;
+}
+#circle:hover {
+    background-image: url(assets/circle.png);
+}
+
+#triangle {
+    background-image: url(assets/triangle_brown.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70px;
+}
+#triangle:hover {
+    background-image: url(assets/triangle.png);
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drawing Canvas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Merriweather|Dancing+Script|Indie+Flower|Lobster|Pacifico|Raleway" rel="stylesheet">
+</head>
+<body>
+<div id="hint-bar">Hi, I'm the info bar! Please select a tool!</div>
+<div id="top-section">
+    <canvas id="drawing-canvas" width="600" height="400"></canvas>
+    <div id="settings-bar">
+        <input id="color-picker" type="color" class="color-picker" value="#3E2512">
+        <label class="color-picker-label" for="color-picker">Color Selector</label>
+        <div class="settings-block">
+            <textarea rows="1" cols="22" id="text-input" placeholder="Input text here."></textarea>
+        </div>
+        <div class="settings-block">
+            <label id="font-selector-label" for="font-selector">Font</label>
+            <select id="font-selector">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Muli">Muli</option>
+                <option value="Merriweather">Merriweather</option>
+                <option value="Dancing Script">Dancing Script</option>
+                <option value="Indie Flower">Indie Flower</option>
+                <option value="Lobster">Lobster</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Raleway">Raleway</option>
+            </select>
+        </div>
+        <input id="thickness-range" type="range" min="1" max="100" value="20">
+        <label for="thickness-range" id="thickness-label">1 px</label>
+        <br>
+        <div class="settings-block">
+            <label class="settings-label">Texture</label>
+            <button id="texture1" class="texture-icon"></button>
+            <button id="texture2" class="texture-icon"></button>
+            <button id="texture3" class="texture-icon"><img src="assets/texture.jpg" alt="" id="texture-img"></button>
+        </div>
+        <div class="settings-block">
+            <input type="file" id="upload-input" accept="image/*">
+            <button id="upload" class="settings-icon"></button>
+            <label class="settings-label">Upload Image</label>
+            <br>
+            <a id="download_link" download="">
+                <button id="download" class="settings-icon"></button>
+            </a>
+            <label class="settings-label">Download</label>
+        </div>
+        <div id="undo-redo-reset" class="settings-block">
+            <button id="undo" class="settings-icon"></button>
+            <button id="redo" class="settings-icon"></button>
+            <button id="reset" class="settings-icon"></button>
+        </div>
+    </div>
+</div>
+
+<div id="lower-section">
+    <div id="tools-bar">
+        <button class="tool-icon" id="pencil"></button>
+        <button class="tool-icon" id="eraser"></button>
+        <button class="tool-icon" id="text"></button>
+        <button class="tool-icon" id="rectangle"></button>
+        <button class="tool-icon" id="circle"></button>
+        <button class="tool-icon" id="triangle"></button>
+    </div>
+    <img id="shelf" src="assets/shelf.png" alt="" width="700px">
+</div>
+</body>
+</html>
